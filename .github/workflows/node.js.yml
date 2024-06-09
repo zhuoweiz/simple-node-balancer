@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x, 20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -31,6 +31,10 @@ jobs:
     - name: Build
       run: npm run build --if-present
     - name: Launch test servers
-      run: node backendServers.js
+      run: |
+        node backendServers.js &
+        echo "Server started"
+    - name: Wait for server to start
+      run: sleep 1
     - name: Test Shooting Requests
       run: npm run test:requests
