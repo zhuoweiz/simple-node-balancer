@@ -30,5 +30,7 @@ jobs:
       run: npm ci
     - name: Build
       run: npm run build --if-present
+    - name: Launch test servers
+      run: node backendServers.js
     - name: Test Shooting Requests
       run: npm run test:requests
