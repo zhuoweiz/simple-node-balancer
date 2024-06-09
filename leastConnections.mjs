@@ -1,5 +1,4 @@
 import httpProxy from 'http-proxy';
-// var httpProxy = require('http-proxy');
 const proxy = httpProxy.createProxyServer({});
 
 const updateConnections = (serverHeap, target, change) => {
