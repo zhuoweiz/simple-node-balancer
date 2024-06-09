@@ -1,4 +1,4 @@
-# Simple load balancer (using NodeJS)
+# Simple nodejs load balancer
 
 ## Steps
 1. Install NodeJS
