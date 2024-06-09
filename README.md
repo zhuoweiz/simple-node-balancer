@@ -1,5 +1,5 @@
 # A simple nodejs load balancer
-![naive workflow](https://github.com/zhuoweiz/simple-node-ts-balancer/blob/main/.github/workflows/node.js.yml/badge.svg)
+![naive workflow](https://github.com/zhuoweiz/simple-node-ts-balancer/actions/workflows/node.js.yml/badge.svg)
 This is merely a project for learning & educational purposes
 
 ## Steps
