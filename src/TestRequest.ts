@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const REQUESTS = 10;
+const REQUESTS = 1000;
 const URL = 'http://localhost:3000';
 
 async function sendRequests() {
@@ -9,7 +9,7 @@ async function sendRequests() {
     requests.push(axios.get(URL));
   }
   await Promise.all(requests);
-  console.log('All requests have been sent.');
+  console.log('All requests are done!');
 }
 
 sendRequests().catch(console.error);

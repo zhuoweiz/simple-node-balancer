@@ -33,8 +33,12 @@ jobs:
     - name: Launch test servers
       run: |
         node backendServers.js &
-        echo "Server started"
-    - name: Wait for server to start
-      run: sleep 1
+        echo "Backend Servers started"
+    - name: Launch load balancer
+      run: |
+        node server.js &
+        echo "Load Balancer started"
+    - name: Wait for everything to start
+      run: sleep 2
     - name: Test Shooting Requests
       run: npm run test:requests
