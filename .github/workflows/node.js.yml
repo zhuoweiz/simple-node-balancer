@@ -31,4 +31,4 @@ jobs:
     - name: Build
       run: npm run build --if-present
     - name: Test Shooting Requests
-      run: npm test:requests
+      run: npm run test:requests
