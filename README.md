@@ -1,4 +1,5 @@
 # Simple nodejs load balancer
+This is merely a project for learning & educational purposes
 
 ## Steps
 1. Install NodeJS
