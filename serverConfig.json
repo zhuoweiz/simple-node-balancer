@@ -1,0 +1,29 @@
+{
+  "servers": [
+    {
+      "host": "localhost",
+      "port": 3001,
+      "timeout": 1000
+    },
+    {
+      "host": "localhost",
+      "port": 3002,
+      "timeout": 800
+    },
+    {
+      "host": "localhost",
+      "port": 3003,
+      "timeout": 600
+    },
+    {
+      "host": "localhost",
+      "port": 3004,
+      "timeout": 400
+    },
+    {
+      "host": "localhost",
+      "port": 3005,
+      "timeout": 1500
+    }
+  ]
+}
