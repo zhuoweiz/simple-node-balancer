@@ -8,7 +8,7 @@
     "build": "tsc",
     "start": "node server.js",
     "test": "mocha --require tsx test/**/*.spec.ts",
-    "test:requests": "node dist/TestRequest.js"
+    "test:requests": "node dist/src/TestRequest.js"
   },
   "author": "",
   "license": "ISC",
