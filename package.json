@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node server.js",
-    "test": "mocha -r ts-node/register test/**/*.spec.ts",
+    "test": "mocha --require tsx test/**/*.spec.ts",
     "test:requests": "node dist/TestRequest.js"
   },
   "author": "",
