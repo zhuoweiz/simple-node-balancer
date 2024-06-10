@@ -1,5 +1,4 @@
 import httpProxy from 'http-proxy';
-// var httpProxy = require('http-proxy');
 const proxy = httpProxy.createProxyServer({});
 
 const updateConnections = (serverHeap, target, change) => {
@@ -12,7 +11,8 @@ const leastConnections = (serverHeap, req, res) => {
   const target = serverHeap.extract();
   target.connections++;
   serverHeap.insert(target);
-  console.log('receives request', target);
+
+  console.log('receives request', target, ' heap:', serverHeap.toArray());
 
   proxy.web(req, res, { target: `http://${target.host}:${target.port}` }, (err) => {
     if (err) {

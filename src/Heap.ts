@@ -7,6 +7,14 @@ class Heap<T> {
     this.comparator = comparator;
   }
 
+  public size(): number {
+    return this.heap.length;
+  }
+
+  public toArray(): T[] {
+    return this.heap.slice();
+  }
+
   private getParentIndex(index: number): number {
     return Math.floor((index - 1) / 2);
   }
@@ -72,6 +80,21 @@ class Heap<T> {
         break;
       }
     }
+  }
+
+  public remove(value: T): boolean {
+    const index = this.heap.indexOf(value);
+    if (index === -1) {
+      return false;
+    }
+    const last = this.heap.pop();
+    if (index === this.heap.length) {
+      return true;
+    }
+    this.heap[index] = last!;
+    this.heapifyUp();
+    this.heapifyDown();
+    return true;
   }
 }
 

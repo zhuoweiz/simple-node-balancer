@@ -1,7 +1,7 @@
 import { createServer } from 'http';
-import roundRobin from './roundRobin.js';
+import roundRobin from './roundRobin.mjs';
 import leastConnections from './leastConnections.mjs';
-import Heap from './dist/Heap.js'
+import Heap from './dist/Heap.js';
 
 import serverConfig from './serverConfig.json' assert { type: 'json' };
 const backendServers = serverConfig.servers;
@@ -20,7 +20,6 @@ servers.forEach(server => {
 const loadBalancingAlgorithm = 'leastConnections';
 
 const server = createServer((req, res) => {
-  console.log("request delt with")
   if(loadBalancingAlgorithm === 'roundRobin') {
     roundRobin(servers, req, res);
   } else if(loadBalancingAlgorithm === 'leastConnections') {
