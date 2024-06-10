@@ -42,3 +42,5 @@ jobs:
       run: sleep 2
     - name: Test Shooting Requests
       run: npm run test:requests
+    - name: Test
+      run: npm run test
