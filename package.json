@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require tsx test/**/*.spec.ts",
     "test:requests": "node dist/TestRequest.js"
   },
   "author": "",
@@ -16,11 +16,15 @@
     "@types/axios": "^0.14.0",
     "axios": "^1.7.2",
     "http-proxy": "^1.18.1",
+    "perf_hooks": "^0.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.16",
     "@types/mocha": "^10.0.6",
-    "mocha": "^10.4.0"
+    "chai": "^5.1.1",
+    "mocha": "^10.4.0",
+    "tsx": "^4.15.1"
   }
 }
