@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node server.js",
-    "test": "mocha --require tsx test/**/*.spec.ts",
+    "test": "mocha -r ts-node/register test/**/*.spec.ts",
     "test:requests": "node dist/TestRequest.js"
   },
   "author": "",
@@ -18,13 +18,13 @@
     "http-proxy": "^1.18.1",
     "perf_hooks": "^0.0.1",
     "ts-node": "^10.9.2",
+    "tsx": "^4.15.1",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
     "@types/chai": "^4.3.16",
     "@types/mocha": "^10.0.6",
     "chai": "^5.1.1",
-    "mocha": "^10.4.0",
-    "tsx": "^4.15.1"
+    "mocha": "^10.4.0"
   }
 }
