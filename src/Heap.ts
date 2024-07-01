@@ -19,6 +19,14 @@ class Heap<T> {
     return this.heap.slice();
   }
 
+  public size(): number {
+    return this.heap.length;
+  }
+
+  public toArray(): T[] {
+    return this.heap.slice();
+  }
+
   private getParentIndex(index: number): number {
     return Math.floor((index - 1) / 2);
   }
