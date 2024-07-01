@@ -1,16 +1,13 @@
 import httpProxy from 'http-proxy';
 const proxy = httpProxy.createProxyServer({});
 
-const updateConnections = (serverHeap, target, change) => {
-  serverHeap.extract(target);
-  target.connections += change;
-  serverHeap.insert(target);
-}
-
-const leastConnections = (serverHeap, req, res) => {
-  const target = serverHeap.extract();
-  target.connections++;
-  serverHeap.insert(target);
+const leastConnections = async (serverHeap, heapMutex, req, res) => {
+  let target;
+  await heapMutex.runExclusive(async () => {
+    target = await serverHeap.extract();
+    target.connections++;
+    await serverHeap.insert(target);
+  });
 
   console.log('receives request', target, ' heap:', serverHeap.toArray());
 
@@ -22,16 +19,14 @@ const leastConnections = (serverHeap, req, res) => {
     }
   });
 
-  res.on('finish', () => {
-    updateConnections(serverHeap, target, -1);
+  res.on('finish', async () => {
+    await heapMutex.runExclusive(async () => {
+      serverHeap.remove(target);
+      target.connections--;
+      serverHeap.insert(target);
+    });
+    
     console.log('finish', target);
-  });
-
-  res.on('close', () => {
-    if (!res.finished) {
-      updateConnections(serverHeap, target, -1);
-      console.log('Request closed before finish:', target);
-    }
   });
 }
 

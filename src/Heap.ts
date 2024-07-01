@@ -1,10 +1,22 @@
+// import { Mutex } from 'async-mutex';
+
 class Heap<T> {
   private heap: T[];
   private comparator: (a: T, b: T) => number;
+  // private mutex: Mutex;
 
   constructor(comparator: (a: T, b: T) => number) {
     this.heap = [];
     this.comparator = comparator;
+    // this.mutex = new Mutex();
+  }
+
+  public size(): number {
+    return this.heap.length;
+  }
+
+  public toArray(): T[] {
+    return this.heap.slice();
   }
 
   public size(): number {
